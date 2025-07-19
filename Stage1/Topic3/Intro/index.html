@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .flex-container {
+            display: flex;
+            /* flex-direction: row; */
+            /* flex-direction: row-reverse; */
+            /* flex-direction: column; */
+            /* flex-direction: column-reverse; */
+
+            /* justify-content: flex-end; */
+            justify-content: center;
+            /* justify-content: flex-start; */
+            /* justify-content: space-between; */
+            /* justify-content: space-evenly; */
+            /* justify-content: space-around; */
+
+            /* flex-wrap: wrap; */
+
+            align-items: center;
+
+            /* align-content: space-between; */
+            /* align-items: flex-start; */
+            /* align-items: flex-end; */
+
+            /* gap: 20px; */
+
+
+           background-color: DodgerBlue;
+
+           height: 600px;
+           /* padding: 20px; */
+        }
+
+        .flex-child {
+            width: 260px;
+            height: 120px;
+            text-align: center;
+            background-color: #f1f1f1;
+            padding: 20px;
+            font-size: 30px;
+            border: 2px solid #000;
+
+
+            /* Parent Flexbox */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+
+        .flex-child-1,.flex-child-2{
+            width: 40px;
+            height: 40px;
+            background-color: #cf4343;
+            padding: 20px;
+            font-size: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-child">
+            <div class="flex-child-1">1.1</div>
+            <div class="flex-child-2">1.2</div>
+        </div>
+        <div class="flex-child">2</div>
+        <div class="flex-child">3</div>  
+        <!-- <div class="flex-child">4</div>
+        <div class="flex-child">5</div>
+        <div class="flex-child">6</div>
+        <div class="flex-child">7</div>
+        <div class="flex-child">8</div>
+        <div class="flex-child">9</div>
+        <div class="flex-child">10</div>
+        <div class="flex-child">11</div>
+        <div class="flex-child">12</div>   -->
+
+        <!-- <div class="flex-child">4</div>   -->
+    </div>
+</body>
+</html>

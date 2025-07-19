@@ -1,0 +1,55 @@
+
+
+
+.box-parent{
+    width: 600px;
+    height: 600px;
+
+    /* text-align: center; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: blue;
+    color: yellow;
+
+    padding: 8px 16px;
+    margin-bottom: 16px;
+
+    font-size: 32px;
+}
+
+.box-parent-2{
+    width: 600px;
+    height: 600px;
+}
+
+
+.box{
+    width: 700px;
+
+    padding: 100px;
+}
+
+
+.product_title{
+    background-color: aquamarine;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+
+.header{
+    /* ... */
+}
+
+
+.footer{
+    /* ... */
+}
+
+
+.custom-input{
+    /* ... */
+}

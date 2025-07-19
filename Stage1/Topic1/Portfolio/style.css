@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* h1 { */
+/* #companyTitle { */
+.title {
+  /* SIZE */
+  /* width: 400px; */
+  width: 1000px;
+  height: 100px;
+
+  /* COLOR */
+  background-color: lightgray;
+  color: blue;
+
+  /* FONT */
+  font-family: Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  /* text-decoration: underline; */
+  /* text-shadow: 2px 2px 4px red; */
+
+  /* SPACING */
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.title:hover {
+  /* HOVER */
+  background-color: lightblue;
+  color: darkblue;
+  cursor: pointer;
+}
+
+.border-title,
+.border-title2,
+.border-title3 {
+  /* BORDER */
+  /* border: 2px solid black; */
+  border-width: 10px;
+  border-style: dashed;
+  border-color: #32aa6c;
+}
+
+/* p,
+li {
+  color: #32aa6c;
+} */
+
+/* div + li { Qonsusu */
+/* div  li { Icindeki */
+div li {
+  color: #32aa6c;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* div + p {
+  color: red;
+} */
+
+.paragraph {
+  color: #ff6347;
+}
+
+.contact-btn {
+  /* BUTTON */
+  background-color: rgba(84, 84, 230, 0.839);
+  color: white;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact-btn:hover {
+  /* BUTTON HOVER */
+  background-color: darkblue;
+  cursor: pointer;
+}
+
+.contact-btn:active {
+  /* background-color: red; */
+  opacity: 0.5;
+}
+
+.about-image {
+  opacity: 0.5;
+}
+
+.about-image:hover {
+  opacity: 1;
+}
+
+.navbar {
+  /* NAVBAR */
+  background-color: lightgray;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.nav-link {
+  color: #32aa6c;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.nav-link:hover {
+  color: rgb(38, 172, 103) c;
+  text-decoration: underline;
+}
+
+/* .contact-btn:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+} */
+
+/* FORM */
+
+.input {
+  /* width: 100%; */
+
+  width: 300px;
+  height: 36px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline: none;
+  /* border-color: #32aa6c;
+
+  border-width: 4px;
+  border-style: dashed; */
+
+  /* border: 4px dashed #32aa6c; */
+  border: 1px solid #32aa6c;
+
+  /* outline: 2px solid lightblue; */
+}
+
+.input::placeholder {
+  color: rgb(173, 173, 173);
+}
+
+.input:disabled {
+  opacity: 0.5;
+}
+
+.h-0 {
+  height: 0 !important;
+}
+
+/* ul li:first-child {
+  background-color: red;
+} */
+
+/* ul li:last-child {
+  background-color: red;
+} */
+
+/* Example: Pseudo-elements for ul li */
+/* ul li::before {
+  content: '• ';
+  color: blue;
+  font-size: 18px;
+} */
+
+/* ul li:hover::after {
+  content: ' ←';
+  color: orange;
+  font-size: 14px;
+} */
+
+/* ul li:nth-child(even) {
+  background-color: red;
+} */
+
+/* 300 + 32 + 10  */
+.box-model {
+  width: 300px; /* 300px  */
+  height: 200px;
+  background-color: lightblue;
+  /* padding-top: 20px;
+  padding-bottom: 40px;
+  padding-left: 15px;
+  padding-right: 45px; */
+  /* padding: 20px 45px 40px 15px;  padding: top right bottom left*/
+  /* padding: 20px 45px;  padding: top/bottom right/left */
+  padding: 16px; /* padding: all sides */
+  margin: 20px;
+
+  border: 5px solid #32aa6c;
+  outline: 5px solid red;
+
+  /* padding: 20px; */
+  /* margin: 20px; */
+}

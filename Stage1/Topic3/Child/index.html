@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child</title>
+
+    <style>
+        .flex-container {
+          display: flex;
+          background-color: #f1f1f1;
+          justify-content: space-between;
+
+          flex-wrap: wrap;
+
+
+          padding: 20px;
+        }
+        
+        .flex-child {
+          background-color: DodgerBlue;
+          color: white;
+
+          /* width: 100px; */
+          height: 100px;
+          font-size: 30px;
+
+          border: 1px solid #000;
+        }
+
+
+  
+        .flex-child-1{
+            /* order:2 */
+            /* flex-basis: 50%; */
+            /* width: 50%; */
+            /* flex-grow: 1; */
+        }
+
+
+        .flex-child-2{
+            /* order:3 */
+            /* width: 50%; */
+            /* flex-basis: 50%; */
+
+            /* flex-grow: 1; */
+
+        }
+
+
+        .flex-child-3{
+            /* order:1 */
+            /* flex-grow: 1; */
+
+        }
+
+        .flex-child-4{
+            /* order:4 */
+        }
+
+        </style>
+</head>
+<body>
+
+    <!-- 
+        1. flex-grow
+        2. flex-shrink
+        3. flex-basis
+        4. flex
+        5. order
+        6. align-self -->
+
+
+        <div class="flex-container">
+            <div class="flex-child flex-child-1" >1</div>
+            <div class="flex-child flex-child-2" >2</div>
+            <!-- <div class="flex-child flex-child-3" >3</div>  -->
+            <!-- <div class="flex-child flex-child-4" >4</div> -->
+        </div>
+
+
+</body>
+</html>

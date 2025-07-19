@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* //Font weight name */
+/* Regular - 400
+Medium - 500
+SemiBold - 600
+Bold - 700 */
+
+
+*{
+    box-sizing: border-box; /* For Box Model Rules */
+}
+
+
+body{
+    background-color: #F9FAFF;
+    font-family: "Nunito", sans-serif;
+}
+
+
+
+
+/* HEADER */
+
+.header{
+    /* background-color: red; */
+
+   
+    height: 56px;
+    position: relative;
+    z-index: 2;
+}
+
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+
+}
+
+
+.header-title{
+    color: #25282B;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Comfortaa", sans-serif;
+}
+
+.nav-list{
+    display: flex;
+    gap:48px;
+    /* background-color: red; */
+    font-size: 18px;
+
+}
+
+
+.nav-link{
+    color: #25282B;
+
+}
+
+
+
+/* HERO */
+.hero{
+    display: flex;
+    justify-content: space-between;
+    gap: 114px;
+
+    /* background-color: yellow; */
+
+    height:629px;
+
+
+}
+
+
+.hero-info{
+    flex-basis: 50%;
+
+    /* background-color: green; */
+    padding-top: 54px;
+    /* padding-left: 120px; */
+}
+
+
+.hero-image-content{
+    flex-basis: 50%;
+    /* background-color: blue; */
+
+    position: relative;
+
+}
+
+
+.hero-image{
+    width: 100%;
+    height:629px;
+
+
+    position: absolute;
+    top:-60px;
+    right: 0;
+
+}
+
+
+.hero-position{
+    color: #FDC435;
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 24px;
+}
+
+
+.hero-title{
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 120%;
+    padding-bottom: 32px;
+
+}
+
+
+.hero-paragraph{
+    color:#828282;
+    font-size: 24px;
+    font-weight: 400;
+    padding-bottom: 32px;
+    line-height: 150%;
+
+}
+
+
+
+/* Buttons */
+
+.hero-buttons{
+    display: flex;
+    gap:12px;
+}
+
+
+.btn{
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 8px;
+    color: #25282B;
+
+    padding: 8px 24px;
+
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btn:hover{
+    opacity: 0.5;
+}
+
+
+.btn-brand{
+    background-color: #FDC435;
+}
+
+.btn-outlined{
+    border:2px solid #25282B
+}
+
+.mobile-menu{
+    background-color: transparent;
+    border: none;
+    padding: 12px;
+
+    font-size: 24px;
+    display: none;
+}
+
+
+
+
+/* 1200 -> ... */
+.container{
+    width: 1200px;
+    /* background-color: red; */
+    margin: 0 auto;
+}
+
+
+
+/* TABLET - 400 - 1200 */
+@media (max-width: 1200px)  {
+    .container{
+        width: 100%;
+    }
+
+    .hero-image-content{
+        display: none;
+    }
+
+    .hero-info{
+        flex-basis: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .header-content{
+        padding:14px;
+    }
+
+    .navbar{
+        display: none;
+    }
+
+    .hero-title{
+        font-size: 32px;
+    }
+ 
+    .hero-paragraph{
+        font-size: 18px;
+
+    }
+
+
+    .mobile-menu{
+        display: block;
+    }
+ 
+}
+
+
+/* PHONE - 0 - 400 */
+ @media (max-width: 400px)  {
+
+    /* .container{
+        width: 100%;
+    } */
+
+    .hero-title{
+        font-size: 24px;
+    }
+ 
+    .hero-paragraph{
+        font-size: 16px;
+
+    }
+
+    
+}

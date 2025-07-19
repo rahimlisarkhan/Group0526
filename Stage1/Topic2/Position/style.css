@@ -1,0 +1,70 @@
+
+
+.box1{
+
+    /* position: static; */
+
+    position: absolute;
+    bottom: 100px;
+    left: 100px;
+
+    width: 400px;
+    height: 400px;
+    background-color: red;
+
+    z-index: 3; /* Higher z-index to appear above box2 */
+}
+
+.box2{
+    /* position: relative; */
+    /* top:100px; */
+    /* left:100px; */
+    /* bottom: 100px;
+    right: 100px; */
+
+    position: absolute;
+    bottom: 30px;
+
+    width: 400px;
+    height: 400px;
+    background-color: blue;
+    /* z-index: 5; */
+}
+
+.box3{
+    position: relative;
+
+    width: 400px;
+    height: 400px;
+    background-color: yellow;
+}
+
+.box3-1{
+    position: absolute;
+
+    bottom: -20px;
+    right: -20px;
+
+    width: 50px;
+    height: 50px;
+    background-color: green;
+}
+
+
+
+.chatbot{
+    position: fixed;
+
+
+    bottom: 20px;
+    right: 20px;
+
+    width: 50px;
+    height: 50px;
+    background-color: rosybrown;
+
+    border-radius: 50%;
+    box-shadow: 2px 4px 4px 4px rgba(0, 0, 0, 0.337);
+
+    z-index: 1000; /* High z-index to ensure it appears above other content */
+}
