@@ -86,18 +86,53 @@
 // <=	less than or equal to
 // ?	ternary operator
 
-
-var age = 18
+var age = 20
 var limit = 18;
+
+var citizen = "az"
+var children = 1
+
 
 // var result = a < b 
 // var result =  a == b // true
 // var result =  a === b // false
 // var result =  a !== b
 
-var result = age >= limit
+// var result = age >= limit
 
-console.log(result);
+
+// JavaScript Logical Operators
+// Operator	Description
+// &&	logical and
+// ||	logical or
+// !	logical not
+
+// var result = age < limit
+// var result = citizen == "az"
+
+// var result = age >= limit && citizen == "az" && children > 0 ; // Ipotek 
+// // var result = age >= limit || citizen == "en" || children > 0 ;
+
+// console.log(result);
+
+
+// var fullname = "John Doe";
+
+// var sentence = "Hello, World!";
+// var sentence2 = 'Hello, World!';
+// var sentence3 =  `Hello, ${fullname} World! You are ${age} years old.`;
+// // var sentence4 =  "Hello, " + fullname + " World!";
+
+
+// console.log(sentence3);
+
+
+// var str = ""
+// var num = 0
+// var bool = false
+// var img = null
+// var address = undefined
+
 
 
 

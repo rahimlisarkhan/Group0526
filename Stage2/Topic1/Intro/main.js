@@ -26,9 +26,10 @@
 // var email = null
 
 // InPrimitive Data Types in JavaScript
-// 1. Object
-// 2. Array
-// 3. Function
+// 1. Array
+// 2. Function
+// 3. Object
+
 
 
 
@@ -43,4 +44,5 @@
 
 // console.log(fullname);
 // console.log(totalPrice);
+
 
