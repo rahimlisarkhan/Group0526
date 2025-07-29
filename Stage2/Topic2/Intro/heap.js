@@ -1,13 +1,6 @@
-
-
-
-
-
 // list[0] = 10; // Change the first element to 10
 
 // console.log("Updated list:", list);
-
-
 
 var a = 10
 
