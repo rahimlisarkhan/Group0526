@@ -159,39 +159,159 @@ function qazUstasi(money){
 //========================================
 
 
-function handleElement(e){
-    return `Ders saati: ${e * 10}`
-}
+// function handleElement(e){
+//     return `Ders saati: ${e * 10}`
+// }
 
 
 function handleElement2(e){
     return e /10
 }
 
+// var handleElement2 = function(e){
+//     return e /10
+// }
 
 
-var list = [2,4,6,8,9]
+var list = [2,12,77,4,6,8,9]
 
 
-function mapNewArray(arr,isGoren){
+// function mapNewArray(arr,cl){
 
-    var newArray = []
+//     var newArray = []
 
-    for(var i = 0; i < arr.length; i++){
-        var el = arr[i]
+//     for(var i = 0; i < arr.length; i++){
+//         var el = arr[i]
 
-        // var result = el * 10
-        var result = isGoren(el)
-        newArray.push(result)
+//         // var result = el * 10
+//         var result = cl(el)
+
+//         newArray.push(result)
+//     }
+
+//     return newArray
+// }
+
+
+
+// var resultArray =  mapNewArray(list,handleElement)
+// var resultArray2 =  mapNewArray(list,handleElement2)
+
+// console.log(resultArray);
+// console.log(resultArray2);
+
+
+
+// var resultArray = mapNewArray(list,function(num){
+//     return 4 * num
+// })
+
+// console.log(resultArray);
+
+// MAP
+// var resultArray2 = list.map(function(num){
+//     return 4 * num
+// });
+
+// console.log(resultArray2);
+
+
+// forEach
+// var newArray = []
+// list.forEach(function(num){
+//     newArray.push(4 * num);
+// });
+
+// console.log(newArray);
+
+
+
+// var newFilterArray = list.filter(function(num){
+//     return num > 5; // true
+// }).map(function(num){
+//     return num * 2;
+// });
+
+// var newFilterArray = list.filter(function(num){
+//     return num > 5; // true
+// })
+
+// var findEl = list.find(function(num){
+//     return num == 6; // true
+// })
+
+// var findEl = list.findIndex(function(num){
+//     return num == 6; // true
+// });
+
+// console.log(findEl);
+
+
+
+// var sum = 0
+
+// for(var i = 0; i < list.length; i++){
+//     sum += list[i]
+// }
+
+// console.log(sum);
+
+
+// var total = list.reduce(function(sum,num){
+
+//     console.log("sum:",sum,"num:",num);
+
+//     return sum + num
+// },0);
+
+
+
+// var arrayList = new Array(10).fill(0)
+
+
+// list.sort(function(a,z){
+//     return a - z;
+// });
+
+// console.log(list);
+
+// console.log(total);
+
+// var isHasEl = list.some(function(num){
+//     return num > 10;
+// });
+
+
+// console.log(isHasEl);
+
+
+function array(string) {
+
+    var array = string.split(",")
+
+
+    // if(array.length <=2){
+    //     return null
+    // }
+
+    if(string  == ""){
+        return null
+    }else if(array.length == 2){
+        return null
+    }else if(array.length == 1){
+        return null
     }
 
-    return newArray
+    array.pop()
+    array.shift()
+
+
+    var result = array.join(" ")
+
+    return result
 }
 
 
+var result = array("1,2,3,4,5")
 
-var resultArray =  mapNewArray(list,handleElement)
-var resultArray2 =  mapNewArray(list,handleElement2)
-
-console.log(resultArray);
-console.log(resultArray2);
+console.log(result);
