@@ -1,57 +1,59 @@
-//       GLOBAL LOCAL(Function) BLOCK  ASSIGN
-// var.   true. true  false     false.  true
-// let.   false. true. true.    true.   true
-// const. false. true  true.    true.   false
 
 
+// function sayHello(age){
 
-// // Global
-// var a = 10
+//     // let result = age >= 18 ? "Buyurun kecin" : "Giris qadagandir!"
 
+//     // if(age>=18){
+//     //     result = "Buyurun kecin"
+//     // }else{
+//     //     result = "Giris qadagandir!"
+//     // }
 
-
-// // Function
-// function B(){
-
-//     var a = 25
-
-//     console.log(a);
-    
-// }
-
-// B()
-
-// console.log(a);
-
-
-
-// if(true){
-
-//     let b = 20    
-//     // dsjdbasdjkas
-
-//     console.log(b);
-
+//     console.log(result);
 // }
 
 
-
-// console.log(b);
-
-
-// var a = 10
-
-// a = 20
+// sayHello(16)
 
 
+// var list = [1,2,3,4]
+
+// // var list2 = list.concat()
+// // var list2 = list.map(function(el){
+// //     return el
+// // })
 
 
-const a = 3.14
+// var list2 = [101,102, ...list, 1001] // spread
 
-a+=10
+// console.log(list2);
+
+
+
+
+// function hesablayan(arg1,arg2,arg3){
+function hesablayan(...args){
+ console.log("hesablayan",args);
+
+    // var result = args.reduce(function(sum,el){
+    //     return sum + el
+    // },0)
+
+
+    let result = 0
+
+    for (let el of args){
+        result+=el
+    }
+
+    return result
+}
+
+
+const a = hesablayan(1,100,102,40)
 
 console.log(a);
 
 
-
-// console.log(a);// 
+// Math.max(1,2,3,4,5,6,7)
