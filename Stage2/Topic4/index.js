@@ -1,59 +1,66 @@
 
+// let suMiqdari = 0;
+// let suSayi = 0;
 
-// function sayHello(age){
 
-//     // let result = age >= 18 ? "Buyurun kecin" : "Giris qadagandir!"
+// let suMiqdariJavad = 0;
+// let suSayiJavad = 0;
 
-//     // if(age>=18){
-//     //     result = "Buyurun kecin"
-//     // }else{
-//     //     result = "Giris qadagandir!"
-//     // }
+// function suSaygac(){
+  
 
-//     console.log(result);
+//    suMiqdari += miqdar;
+//    suSayi++;
+
+
 // }
 
 
-// sayHello(16)
+// function suSaygacJavad(){
+  
+
+//    suMiqdari += miqdar;
+//    suSayi++;
 
 
-// var list = [1,2,3,4]
-
-// // var list2 = list.concat()
-// // var list2 = list.map(function(el){
-// //     return el
-// // })
-
-
-// var list2 = [101,102, ...list, 1001] // spread
-
-// console.log(list2);
+// }
 
 
 
 
-// function hesablayan(arg1,arg2,arg3){
-function hesablayan(...args){
- console.log("hesablayan",args);
+function suSaygac(){
 
-    // var result = args.reduce(function(sum,el){
-    //     return sum + el
-    // },0)
+  let suMiqdari = 0;
+  let suSayi = 0;
+
+   function suHesabatinArtir(miqdar){
+    suMiqdari += miqdar;
+    suSayi++;
+
+    const resultList = [suMiqdari,suSayi]
+
+    return resultList
+
+   }
 
 
-    let result = 0
+   return suHesabatinArtir
 
-    for (let el of args){
-        result+=el
-    }
-
-    return result
 }
 
 
-const a = hesablayan(1,100,102,40)
+const javadSuSaygaci = suSaygac() // suHesabatinArtir fn Javad ucun bu variabledadir
 
-console.log(a);
+javadSuSaygaci(2)
+
+const result1 =  javadSuSaygaci(2)
+
+console.log(result1);
 
 
-// Math.max(1,2,3,4,5,6,7)
+javadSuSaygaci(2)
+
+
+const result2 =  javadSuSaygaci(4)
+
+console.log(result2);
