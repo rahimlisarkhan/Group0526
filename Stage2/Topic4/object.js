@@ -34,7 +34,7 @@ const myCar = {
 
     go:function(){
         this.speed+=20
-        console.log("Go!!!",this.speed);
+        console.log("Go!!!",this.speed);//20
         this.monitoring()
 
     },

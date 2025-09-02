@@ -35,7 +35,7 @@ let personalInfo = {
 const result = personalInfo.career.last_position
 
 
-// const arr = personalInfo.address
+// const arr = personalInfo.career.point
 
 // for (let info of arr){
 //     console.log(info.street);

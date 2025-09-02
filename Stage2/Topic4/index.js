@@ -1,60 +1,72 @@
 
 
-
-
 const myObj = {
-    fullname: "John",
+    name: "John",
     age: 30,
     city: "New York",
 
 
-    getInfo: function() {
-        // console.log("this ?", this);// WINDOW or Obj ?
-        // console.log("Name:", this.name); // John
-        // console.log("Age:", this.age); // 30
-        // console.log("Position:", this.position); // New York
 
-        var thisData = this;
+    showInfo:function(a,b,c) {
+    const result =  `fullname:${this.name} | ${this.age}` 
+    console.log(this);
 
-        function innerFunction(sum, count) {
-            console.log("this ?", this); // WINDOW or undefined ?
-            console.log("thisData ?", thisData); // WINDOW or undefined ?
-            console.log("Name:", thisData.fullname); // John or undefined
-            console.log("Age:", thisData.age); // 30 or undefined
-            console.log("Position:", thisData.city); // New York or undefined
-        }
+    console.log("a",a);
+    console.log("b",b);
+    console.log("c",c);
+    
+    console.log(result);
 
-        innerFunction(40, 60)
-
-    },
-
-    getName: function() {
-        console.log("Name:", this.name); // John or undefined
-
-        const innerFunction = (sum,count) => {
-            console.log("innerFunction this ?", this); // WINDOW or undefined ?
-            console.log("innerFunction sum ?", sum); // 40
-            console.log("innerFunction count ?", count); // 60
-        }
-
-        innerFunction(40, 60)
-    },
-
-    getName: function() {
-        console.log("Name:", this.name); // John or undefined
-
-        const innerFunction = (sum,count) => {
-
-            console.log("innerFunction this ?", this); // WINDOW or undefined ?
-            console.log("innerFunction sum ?", sum); // 5
-            console.log("innerFunction count ?", count); // 10
-        }
-
-        innerFunction(5, 10)
-    }
-}
+    return result
+}   
+};
 
 
 
-// myObj.getInfo()
-myObj.getName()
+const myObj2 = {
+    name: "Marry",
+    age: 22,
+    city: "Mayami",
+
+};
+
+
+
+
+
+const show2 =  myObj.showInfo.bind(myObj2,1,2,3)
+
+show2()
+console.log("show2",show2);
+
+// myObj.showInfo.call(myObj2,1,2,3)
+// myObj.showInfo.apply(myObj2,[1,2,3])
+// myObj.showInfo()
+
+
+
+
+
+// function showInfo(a,b,c) {
+//     const result =  `fullname:${this.name} | ${this.age}`
+//     console.log(this);
+
+//     console.log("a",a);
+//     console.log("b",b);
+//     console.log("c",c);
+    
+//     console.log(result);
+
+//     return result
+// }   
+
+
+// showInfo()
+// showInfo.call(myObj)
+// showInfo.call(myObj2,2,3,4)
+
+
+// showInfo.apply(myObj)
+// showInfo.apply(myObj2,[2,3,4])
+
+
