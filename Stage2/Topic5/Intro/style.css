@@ -1,0 +1,9 @@
+
+
+.main-title {
+    color: blue;
+}
+
+.main-title.updated {
+    color: red;
+}
