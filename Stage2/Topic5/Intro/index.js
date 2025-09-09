@@ -1,52 +1,80 @@
-// Find element in DOM
 
-const titleEl = document.querySelector("#title");
+// // // const sayHelloBtn = document.getElementById("sayHelloBtn");
+// // const sayHelloBtn = document.querySelector("#sayHelloBtn");
 
-
-const a =  titleEl.nextElementSibling
-
-console.log(a);
-
-
-// Change element content
-// titleEl.innerHTML = "<span>Hello from JS</span>";
-titleEl.innerHTML = "JS is awesome";
-
-titleEl.style.color = "green";
-titleEl.style.fontSize = "40px";
-titleEl.style.backgroundColor = "yellow";
-
-// titleEl.className = "main-title updated";
-// titleEl.classList.add("updated");
-// titleEl.classList.remove("main-title");
-// titleEl.classList.toggle("main-title");
-
-// titleEl.setAttribute("class", "main-title updated");
-
-// const attr = titleEl.getAttribute("class");
-// console.log(attr);
+// // const listEl = document.getElementById("listEl");
 
 
 
-// Create and append new element
+// // function sayHello(e) {
+// //     // e.target.style.backgroundColor = "red";
+// //     // e.target.style.color = "white";
 
-const newEl = document.createElement("p");
+// //     // e.target.style.fontSize = "30px";
+
+// //     // e.target.innerHTML = "You clicked me";
+
+// //     console.log("Hello! You clicked on Subtopic 1", e);
+// //     listEl.style.display = "block";
+// // }
+
+// // // sayHelloBtn.onclick = sayHello;
+
+// // // Mouse Events
+// // // sayHelloBtn.addEventListener("click", sayHello);
+// // // sayHelloBtn.addEventListener("dblclick", sayHello);
+
+// // sayHelloBtn.addEventListener("mouseenter", sayHello);
+
+
+// // sayHelloBtn.addEventListener("mouseleave", function(e) {
+ 
+// //     listEl.style.display = "none";
+// // });
 
 
 
-
-newEl.innerHTML = "This is a new paragraph created by JS";
-
-// console.log(newEl);
-
-newEl.style.fontSize = "20px";
-newEl.style.color = "purple";
-
-// document.body.prepend(newEl);
-document.body.appendChild(newEl);
+// // Input Events
+// const fullname = document.getElementById("fullname");
+// const errorText = document.getElementById("errorText");
 
 
-//remove
+// fullname.addEventListener("input", function(e) {
 
-// titleEl.remove();
-// document.body.removeChild(titleEl);
+//     const inputType = e.inputType;
+//     console.log("Input event detected:", inputType);
+
+//     // console.log("Input event detected:", e.target.value);
+// });
+
+
+// fullname.addEventListener("focus", function(e) {
+//     errorText.style.display = "none";
+// });
+
+// fullname.addEventListener("blur", function(e) {
+
+//     const value = e.target.value;
+
+//     console.log("value",value);
+
+//     const resultText = value.length > 0 ? "Success" : "Please enter your full name";
+
+//     errorText.style.display = "block";
+//     errorText.innerHTML = resultText;
+//     errorText.style.color = value.length > 0 ? "green" : "red";
+
+// });
+
+
+
+const messageArea = document.querySelector("#messageArea");
+
+
+messageArea.addEventListener("keydown", function(e) {
+    console.log("Key down event detected:", e);
+
+    if(e.key === "Enter") {
+        alert(e.target.value);
+    }
+})
