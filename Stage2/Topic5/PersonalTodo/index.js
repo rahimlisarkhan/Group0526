@@ -10,7 +10,11 @@ const sendBtn = document.querySelector("#sendBtn");
 const data = []
 
 
-sendBtn.addEventListener("click", function(){
+sendBtn.addEventListener("click", handleSubmit)
+
+
+function handleSubmit(){
+    // e.preventDefault();
 
     const user = {
         fullName: fullName.value,
@@ -20,16 +24,12 @@ sendBtn.addEventListener("click", function(){
     data.push(user);
 
 
-    console.log(data);
-
-
     //Chnge the inner HTML
     fullName.value = "";
     email.value = "";
 
     renderElements();
 }
-)
 
 function renderElements(){
 
@@ -40,8 +40,6 @@ function renderElements(){
                      <td>${item.email}</td>
                 </tr>`
     }).join("");
-
-    console.log(content);
 
 
     const personalList = document.querySelector("#personalList");
