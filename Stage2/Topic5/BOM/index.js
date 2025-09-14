@@ -78,6 +78,8 @@ async function startRecording() {
         
         mediaRecorder.onstop = function() {
             console.log("Recording stopped");
+            recordDiv.style.display = "none";
+
             
             // Create blob from recorded chunks
             const blob = new Blob(recordedChunks, {
@@ -101,6 +103,7 @@ async function startRecording() {
         // Start recording
         mediaRecorder.start();
         console.log("Recording started...");
+        recordDiv.style.display = "block";
         
         // Stop recording after 5 seconds (for demo)
         setTimeout(() => {
@@ -115,6 +118,8 @@ async function startRecording() {
 function stopRecording() {
     if (mediaRecorder && mediaRecorder.state === "recording") {
         mediaRecorder.stop();
+        recordDiv.style.display = "none";
+
         
         // Stop all tracks
         mediaRecorder.stream.getTracks().forEach(track => {
