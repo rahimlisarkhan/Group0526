@@ -75,11 +75,25 @@ class BankAccount{
 
     getBalance(){
         alert(`Current balance is ${this.balance}`);
+
+
     }
 
     getAccountInfo(){
+
+        const pin = prompt("Enter your PIN:");
+        if (this._checkPin(pin) === false) {
+            alert("Invalid PIN");
+            return;
+        }
+
         const result = `Account Number: ${this.accountNumber}, Account Holder: ${this.accountHolder}, Balance: ${this.balance}`;
         alert(result);
+    }
+
+    _checkPin(pin){
+        // Private method (convention)
+        return pin === "1234"; // Example PIN check
     }
 }
 
