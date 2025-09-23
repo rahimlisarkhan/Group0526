@@ -4,24 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+    <style>
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .movie-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 400px;
+            margin: auto;
+        }
+        .movie-poster {
+            width: 100%;
+            height: auto;
+        }
+        .movie-details {
+            padding: 15px;
+        }
+        .movie-title {
+            font-size: 24px;
+            margin: 0 0 10px;
+        }
+        .movie-genre,
+        .movie-year,
+        .movie-rating,
+        .movie-description {
+            margin: 5px 0;
+        }
+        .movie-description {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .movie-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .movie-input {
+            padding: 8px;
+            width: 200px;
+            margin-right: 10px;
+        }
+        .movie-button {
+            padding: 8px 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .movie-button:hover {
+            background-color: #0056b3;
+        }
+
+        .movie-input-container {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+    </style>
+
 </head>
 <body>
 
-    <h1>Topic 6</h1>
+    <!-- Movie Input -->
+    <div class="movie-input-container" >
+        <label for="movieTitle" class="movie-label">Movie Title:</label>
+        <input type="text" id="movieTitle" class="movie-input" placeholder="Enter movie title">
+        <button id="fetchMovieButton" class="movie-button">Fetch Movie Details</button>
+    </div>
+
+    <!-- Loading -->
+    <div id="loading" style="text-align: center; display: none;
+    ">Loading...</div>
+
+    <!-- Movie Card -->
+    <div class="movie-card">
+        <img src="https://m.media-amazon.com/images/I/51oBxmV-dML._AC_.jpg" alt="Movie Poster" class="movie-poster">
+        <div class="movie-details">
+            <h2 class="movie-title">Inception</h2>
+            <p class="movie-genre">Genre: Science Fiction, Action</p>
+            <p class="movie-year">Release Year: 2010</p>
+            <p class="movie-rating">Rating: 8.8/10</p>
+            <p class="movie-description">A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.</p>
+        </div>
+    </div>
+
+    <!-- <h1>Topic 6</h1>
     <h2>JavaScript Events</h2>
     <h3 id="timer">00:00</h3>
 
 
     <!-- <button id="stopButton"> Stop</button> -->
 
-    <button id="depositButton"> Deposit</button>
+    <!-- <button id="depositButton"> Deposit</button>
     <button id="withdrawButton"> Withdraw</button>
     <button id="balanceButton"> Balance</button>
     <button id="accountInfoButton"> Account Info</button>
 
 
     <script src="./utils.js">
-    </script>
+    </script>  -->
     <script src="./index.js"></script>
 </body>
 </html>
