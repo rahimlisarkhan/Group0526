@@ -1,28 +1,58 @@
-//Recursive function
 
-function A(num){
-    if(num === 0){
-        return
-    };
-
-    console.log(num);
-    A(num - 1);
-} 
+const movieTitleInput = document.getElementById("movieTitle")
+const fetchMovieButton = document.getElementById("fetchMovieButton")
+const loadingEl = document.getElementById("loading")
 
 
-A(5);// 5 4 3 2 1
+async function getMovieData(title){
+   try{
+    const apiKey = "5addd3ac"
+    const url =`http://www.omdbapi.comm/?apikey=${apiKey}&t=${title}`
+    loadingEl.style.display = "block";
 
+    const response = await fetch(url)
 
+    const data = await response.json()
 
-function factorial(n){
-    if(n === 0){
-        return 1
-    }
+    console.log("data", data);
+    renderData(data)
+    }catch(err){
+     console.log(err);
+     alert("An error occurred while fetching movie data.");
+    //  window.location.href = "/404"
+   }finally{
+     loadingEl.style.display = "none";
+   }
 
-    return n * factorial(n - 1) // 5 * 
 }
 
 
-var result = factorial(5) // 5 * 4 * 3 * 2 * 1 = 120
+// getMovieData("o olmasin bu olsun")
 
-console.log(result);
+function renderData(data){
+
+    const titleEl = document.querySelector(".movie-title")
+    const genreEl = document.querySelector(".movie-genre")
+    const ratingEl = document.querySelector(".movie-rating")
+    const yearEl = document.querySelector(".movie-year")
+    const posterEl = document.querySelector(".movie-poster")
+    const descriptionEl = document.querySelector(".movie-description")
+
+    titleEl.textContent = data.Title
+    genreEl.textContent = `Genre: ${data.Genre}`
+    yearEl.textContent = `Release Year: ${data.Year}`
+    ratingEl.textContent = `Rating: ${data.imdbRating}/10`
+    descriptionEl.textContent = data.Plot
+    posterEl.src = data.Poster
+
+
+}
+
+
+fetchMovieButton.addEventListener("click", function(){
+    const title = movieTitleInput.value;
+     getMovieData(title)
+
+     movieTitleInput.value = ""
+  
+});

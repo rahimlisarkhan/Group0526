@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .post {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .post-title {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        .post-body {
+            margin-bottom: 10px;
+        }
+        .delete-post-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .delete-post-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .add-post-form {
+            margin-bottom: 20px;
+        }
+        .add-post-form input, .add-post-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .add-post-form button {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .add-post-form button:hover {
+            background-color: #27ae60;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 class="post-title">Posts</h1>
+
+    <div class="add-post-form">
+        <input type="text" id="post-title" placeholder="Post Title" />
+        <br /><br />
+        <textarea id="post-body" placeholder="Post Body"></textarea>
+        <br /><br />
+        <button id="add-post-btn">Add Post</button>
+    </div>
+
+
+    <div id="posts-container">
+        <!-- Posts will be rendered here -->
+        <h3>Loading...</h3>
+         <div class="post">
+            <h2 class="post-title">Post Title</h2>
+            <p class="post-body">Post body content...</p>
+            <button class="delete-post-btn" >Delete Post</button>
+         </div>
+    </div>
+    
+
+    <script src="./index.js"></script>
+</body>
+</html>
