@@ -41,13 +41,14 @@ function handleSubmit(){
 
 function removeItem(currentIndex){
 
-     data = data.filter((item,index)=>index !== currentIndex)
+    const newFilterData = data.filter((item,index)=>index !== currentIndex) 
+
+     data = newFilterData
 
     localStorage.setItem("personal",JSON.stringify(data))
     console.log("i",currentIndex);
 
     renderElements()
-    
 }
 
 function renderElements(){
