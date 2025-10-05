@@ -131,6 +131,8 @@ submitBtn.addEventListener("click", async () => {
     const newPost = {
         title: titleInput.value,
         body: bodyInput.value,
+        // img_url:"",
+        // age:""
     };
 
     await addNewPost(newPost);
