@@ -15,6 +15,9 @@ let data = localData ? JSON.parse(localData) : []
 
 console.log("data",data);
 
+console.log(getCurrentDate);
+
+
 
 sendBtn.addEventListener("click", handleSubmit)
 
