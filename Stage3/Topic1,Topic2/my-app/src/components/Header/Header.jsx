@@ -1,5 +1,6 @@
 import { Nav } from '../Nav';
 import styles from './Header.module.css';
+import Button from 'react-bootstrap/Button';
 
 
 function Header({showLogo,age}) {
@@ -11,6 +12,7 @@ function Header({showLogo,age}) {
       <h1>My Application Header</h1>
 
       <Nav age={age} />
+      <Button variant="warning" size='lg'>Bootstrap Button</Button>
     </header>
   )
 }

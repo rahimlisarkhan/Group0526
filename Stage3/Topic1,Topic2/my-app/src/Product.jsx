@@ -31,7 +31,7 @@ export function Products(props) {
 
       {/* <button onClick={()=>sayHello()}>Click Me</button> */}
       <button onClick={sayHello}>Click Me</button>
-      <button onClick={props.sayUserAlert}>Show Alert from Parent</button>
+      <button onClick={() => props.sayUserAlert("Button Clicked from Product")}>Show Alert from Parent</button>
        {props.children}
     </div>
   )

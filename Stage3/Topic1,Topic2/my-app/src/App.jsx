@@ -6,9 +6,13 @@ import { Button } from "./components/Button";
 import { Products } from "./Product"
 import { currentTime } from "./utils/date";
 
+import productsData from "./data/products.json";
+
 
 function App() {
 
+  console.log("productsData",productsData);
+  
   const date = currentTime();
   const name = "Javad";
 
@@ -22,8 +26,10 @@ function App() {
     job:"Developer"
   }
 
-  function alertUser() {
+  function alertUser(param) {
     alert(`Hello ${name}! Current time is ${date}`);
+    console.log("Parameter:", param);
+
   }
 
   const isWorking = true;
@@ -34,7 +40,12 @@ function App() {
       <div>
         <h1>Welcome to My App : {name}</h1>
         <p>Current Time: {date}</p>
-        <button onClick={alertUser}>Show Alert</button>
+        <button onClick={() => alertUser("Button Clicked")}>Show Alert</button>
+
+        <Button size="extraLarge">
+          Click Me
+        </Button>
+
         <Button variant="danger" showArrow>
           Click Me
         </Button>
@@ -54,10 +65,9 @@ function App() {
         myPerson={myPerson} 
         isWorking={isWorking} 
         sayUserAlert={alertUser}>
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
-          <ProductCard/>
+          {productsData.map(product => (
+            <ProductCard key={product.id} {...product}/>
+          ))}
       </Products>
 
       <div>
