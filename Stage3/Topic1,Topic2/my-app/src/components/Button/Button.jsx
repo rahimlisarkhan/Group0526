@@ -1,18 +1,23 @@
 import styles from "./Button.module.css";
 import PropTypes from 'prop-types';
 
-export const Button = ({size = "medium", variant = "primary", disabled = false, showArrow = false, children}) => {
+export const Button = ({size = "medium", variant = "primary", disabled = false, showArrow = false, children, onBtnClick}) => {
 
   // const {size, variant, disabled, children} = props
 
-  const sizeClassName = styles[size] || '';
+  // const sizeClassName = size ? styles[size] : '';
 
   const variantClassName = styles[variant || 'primary'];
 
   const arrowNext = showArrow ? ' →' : '';
 
+
+  // function sayHello() {
+  //   console.log("Hello from Button component!");
+  // }
+
   return (
-    <button className={`${styles.btn} ${sizeClassName} ${variantClassName}`} disabled={disabled}>
+    <button className={`${styles.btn} ${size ? styles[size] : ''} ${variantClassName}`} disabled={disabled} onClick={onBtnClick}>
       {children} {arrowNext}
     </button>
   );
@@ -33,15 +38,9 @@ Button.propTypes = {
   showArrow: PropTypes.bool,
   
   // Children can be any renderable content
-  children: PropTypes.node.isRequired
-};
+  children: PropTypes.node.isRequired,
 
-// Default props
-// Button.defaultProps = {
-//   size: 'medium',
-//   variant: 'primary',
-//   disabled: false,
-//   showArrow: false
-// }; 
+  onBtnClick: PropTypes.func
+};
 
 
