@@ -5,16 +5,7 @@ import { ResumePreview } from './ResumePreview'
 
 export const PersonalResume = () => {
 
-    const [data, setData] = useState({
-        fullName: '',
-        email: '',
-        phone: '',
-        address: '',
-        summary: '',
-        experience: '',
-        education: '',
-        skills: ''
-    });
+    const [data, setData] = useState();
 
     console.log("data", data);
 
