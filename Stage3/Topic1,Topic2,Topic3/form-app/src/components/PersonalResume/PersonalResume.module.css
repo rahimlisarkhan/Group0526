@@ -145,6 +145,21 @@
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
+
+.btnPrimary:disabled {
+    background: #cccccc !important;
+    cursor: not-allowed;
+    box-shadow: none !important;
+    transform: none !important;
+    
+}
+
+.info {
+    color: #3498db;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
 .btnSecondary {
     background-color: #e0e0e0;
     color: #333;
