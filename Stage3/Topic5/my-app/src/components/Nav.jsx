@@ -1,24 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 
 
 
 export const Nav = ({age}) => {
 
-
   //COMPONENT MOUNTED OR UNMOUNTED
-  // useEffect(() => {
-  //   console.log("Nav component mounted or age changed:");
+  useEffect(() => {
   
-  //   const cleanUp = () => {
-  //     console.log("Nav component unmounted or before age changes:");
-  //     // notify.off()
-  //     // localStorage.clear()
-  //   };
+    const cleanUp = () => {
+      console.log("Nav component unmounted or before age changes:");
+      // notify.off()
+      // localStorage.clear()
+    };
   
-  //   return cleanUp;
+    return cleanUp;
 
-  // }, []);
-
+  }, []);
 
   // UPDATED
   useEffect(() => {
@@ -36,7 +33,14 @@ export const Nav = ({age}) => {
 
     }
 
+
+
   }, [age]);
+
+  // Component will mount
+  useLayoutEffect(()=>{
+    document.title = `User title`;
+  },[])
 
   console.log("age",age);
   
