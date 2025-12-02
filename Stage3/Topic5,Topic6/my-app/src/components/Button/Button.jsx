@@ -1,7 +1,13 @@
+import { memo, useId } from "react";
 import styles from "./Button.module.css";
 import PropTypes from 'prop-types';
 
-export const Button = ({size = "medium", variant = "primary", disabled = false, showArrow = false, children, onBtnClick}) => {
+ const Button = ({size = "medium", variant = "primary", disabled = false, showArrow = false, children, onBtnClick}) => {
+
+
+    const componentId = useId() // unique id for the component instance - d8df
+  
+    console.log("componentId",componentId);
 
   // const {size, variant, disabled, children} = props
 
@@ -43,4 +49,6 @@ Button.propTypes = {
   onBtnClick: PropTypes.func
 };
 
+
+export default memo(Button);
 

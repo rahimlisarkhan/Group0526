@@ -3,6 +3,7 @@ import styles from "./ProductCard.module.css";
 import FlowerImage from "../../assets/images.jpeg";
 import SalaryIcon from "../../assets/salary.svg?react";
 import { FaRegEdit } from "react-icons/fa";
+import { memo } from "react";
 
 function ProductCard({ name = "Title", description = "Description", price = 0 }) {
   return (
@@ -17,4 +18,4 @@ function ProductCard({ name = "Title", description = "Description", price = 0 })
   );
 }
 
-export default ProductCard;
+export default memo(ProductCard);

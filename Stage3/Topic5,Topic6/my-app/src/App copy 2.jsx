@@ -1,6 +1,4 @@
 import { useEffect, useRef, useState } from "react"
-import { Nav } from "./components/Nav"
-import axios from "axios"
 import { createTodo, deleteTodo, getTodos } from "./api/todo.api"
 
 
