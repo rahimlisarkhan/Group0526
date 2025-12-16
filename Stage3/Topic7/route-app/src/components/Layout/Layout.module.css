@@ -43,10 +43,19 @@
 }
 
 .footer {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 2rem;
   margin-top: auto;
+  transition: all 0.3s ease;
+}
+
+.footerLight {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.footerDark {
+  background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+  border-top: 1px solid #444;
 }
 
 .footerContent {

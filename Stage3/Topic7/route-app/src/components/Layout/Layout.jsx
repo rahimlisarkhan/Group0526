@@ -14,7 +14,7 @@ export default function Layout({children}) {
             {children}
         </div>
       </main>
-      <footer className={styles.footer}>
+      <footer className={cls(styles.footer, mode === 'dark' ? styles.footerDark : styles.footerLight)}>
         <div className={styles.footerContent}>
           <p className={styles.footerText}>
             © {new Date().getFullYear()} My Website. All rights reserved.

@@ -8,22 +8,17 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const {actions} = useGlobal()
-
-
+  const {mode, actions} = useGlobal()
 
   const isActive = (path) => {
-
     if(path == location.pathname){ 
       return styles.activeNavItem
     }
-
     return "";
   }
 
-
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${mode === 'dark' ? styles.headerDark : styles.headerLight}`}>
       <div className={styles.headerContainer}>
         <h2 className={styles.headerTitle}>My Website</h2>
         <nav>
