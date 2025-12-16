@@ -1,36 +1,56 @@
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { ROUTER } from "../constants/router";
-
-
+import styles from "./Header.module.css";
+import { cls } from "../utils/cls";
+import { useGlobal } from "../store/global/useGlobal";
 
 export default function Header() {
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const navigate = useNavigate();
+  const {actions} = useGlobal()
+
+
+
+  const isActive = (path) => {
+
+    if(path == location.pathname){ 
+      return styles.activeNavItem
+    }
+
+    return "";
+  }
+
 
   return (
-    <header style={{
-        borderBottom:"2px solid black",
-        padding:"10px",
-    }}>
-      <h2>Header</h2>
-      <nav>
-        <li onClick={()=> navigate(ROUTER.SCREENS.HOME)} >
-            Home
-        </li>
-          <li onClick={()=> navigate(ROUTER.SCREENS.ABOUT)} >
-            About
-        </li>
-          <li onClick={()=> navigate(ROUTER.SCREENS.CONTACT)} >
-            Contact
-        </li>
-          <li onClick={()=> navigate(ROUTER.SCREENS.BLOG)} >
-            Blog
-        </li>
+    <header className={styles.header}>
+      <div className={styles.headerContainer}>
+        <h2 className={styles.headerTitle}>My Website</h2>
+        <nav>
+          <ul className={styles.headerNav}>
+            <li className={cls(isActive(ROUTER.SCREENS.HOME) , styles.navItem,styles)} onClick={() => navigate(ROUTER.SCREENS.HOME)}>
+              Home
+            </li>
+            <li className={cls(isActive(ROUTER.SCREENS.ABOUT) , styles.navItem)} onClick={() => navigate(ROUTER.SCREENS.ABOUT)}>
+              About
+            </li>
+            <li className={cls(isActive(ROUTER.SCREENS.CONTACT) , styles.navItem)} onClick={() => navigate(ROUTER.SCREENS.CONTACT)}>
+              Contact
+            </li>
+            <li className={cls(isActive(ROUTER.SCREENS.BLOG) , styles.navItem)} onClick={() => navigate(ROUTER.SCREENS.BLOG)}>
+              Blog
+            </li>
+            <li className={cls(isActive(ROUTER.ACTIONS.SETTINGS_PROFILE) , styles.navItem)} onClick={() => navigate(ROUTER.ACTIONS.SETTINGS_PROFILE)}>
+              Settings
+            </li>
+                 <button className={styles.toggleModeBtn} onClick={actions.toggleMode}>
+            Toggle Mode
+          </button>
+          </ul>
 
-        <li onClick={()=> navigate(ROUTER.ACTIONS.SETTINGS_PROFILE)} >
-            Settings
-        </li>
-      </nav>
+     
+        </nav>
+      </div>
     </header>
   )
 }
