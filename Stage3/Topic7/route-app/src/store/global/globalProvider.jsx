@@ -9,7 +9,6 @@ const initialState = {
 
 const GlobalContext = createContext(initialState);
 
-
 export const GlobalStore = ({children})=>{
 
     const [blogs,setBlogs] = useState([]);

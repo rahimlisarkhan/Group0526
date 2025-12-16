@@ -1,5 +1,4 @@
 import { useCallback } from "react";
-import Header from "../components/Header";
 import { useGlobal } from "../store/global/useGlobal";
 import Layout from "../components/Layout/Layout";
 

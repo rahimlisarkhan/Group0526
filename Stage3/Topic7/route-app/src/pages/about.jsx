@@ -12,10 +12,8 @@ export default function About() {
     console.log("About",globalState);
 
   return (
-   <>
           <Layout>
             <h1>About Page:{globalState.exampleTitle}</h1>
           </Layout>
-    </>
   )
 }
