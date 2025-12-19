@@ -4,6 +4,11 @@ import styles from "./Header.module.css";
 import { cls } from "../utils/cls";
 import { useGlobal } from "../store/global/useGlobal";
 
+
+
+console.log("styles",styles);
+
+
 export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -21,6 +26,8 @@ export default function Header() {
     <header className={`${styles.header} ${mode === 'dark' ? styles.headerDark : styles.headerLight}`}>
       <div className={styles.headerContainer}>
         <h2 className={styles.headerTitle}>My Website</h2>
+        {/* <h2 className={`${styles.headerTitle} ${styles.fontMedium} ${styles.container}`}>My Website</h2>
+        <h2 className={cls(styles.headerTitle, styles.fontMedium, styles.container,false)}>My Website</h2> */}
         <nav>
           <ul className={styles.headerNav}>
             <li className={cls(isActive(ROUTER.SCREENS.HOME) , styles.navItem,styles)} onClick={() => navigate(ROUTER.SCREENS.HOME)}>

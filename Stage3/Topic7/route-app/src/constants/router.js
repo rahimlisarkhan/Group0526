@@ -11,7 +11,8 @@ export const ROUTER = {
         ABOUT: "/about",
         CONTACT: "/contact",
         BLOG: "/blog",
-        BLOG_DETAIL: "/blog/:id",
+        BLOG_DETAIL: "/blog/detail/:id",
+        BLOG_CREATE: "/blog/create",
         SETTINGS:{
             BASE: "/settings/*",
             PROFILE: "/settings/profile",
@@ -25,6 +26,7 @@ export const ROUTER = {
         SETTINGS_PROFILE: "/settings/profile",
         SETTINGS_PASSWORD: "/settings/password",
         SETTINGS_NOTIFICATION: "/settings/notification",
-        BLOG_ID: "/blog/",
+        BLOG_ID: "/blog/detail/",
+        BLOG_CREATE: "/blog/create",
     }
 }

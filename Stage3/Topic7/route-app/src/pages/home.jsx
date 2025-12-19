@@ -1,6 +1,9 @@
 import { useCallback } from "react";
 import { useGlobal } from "../store/global/useGlobal";
 import Layout from "../components/Layout/Layout";
+import { IoMdSend } from "react-icons/io";
+
+import { Button, DatePicker, Divider, Flex } from 'antd';
 
 
 
@@ -25,9 +28,14 @@ export default function Home() {
             <h1>Home Page</h1>
             <h2>{globalState.exampleTitle}</h2>
 
-            <button onClick={handleTitle}>
-              Change Global Title
-            </button>
+            <Divider />
+
+             <Flex gap={4} align="center">
+                <DatePicker />
+                <Button color="purple" variant="solid" onClick={handleTitle} icon={<IoMdSend/>} iconPlacement="end" >
+                Filled
+              </Button>
+            </Flex>
           </Layout>
 
     </>

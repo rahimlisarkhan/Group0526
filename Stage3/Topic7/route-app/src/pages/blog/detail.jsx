@@ -1,4 +1,5 @@
 import { Link, useNavigate, useParams } from "react-router-dom"
+import Layout from "../../components/Layout/Layout";
 
 
 
@@ -9,10 +10,10 @@ export default function Detail() {
     const navigate = useNavigate();
 
   return (
-    <div>
+    <Layout>
       <h1>Blog Detail Page:{id}</h1>
       {/* <Link to="/blogs" className="blog-btn" >Back to Blogs</Link> */}
       <button className="blog-btn" onClick={()=> navigate(-1)} >Go Back</button>
-    </div>
+    </Layout>
   )
 }

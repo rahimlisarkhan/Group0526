@@ -28,6 +28,7 @@ const Contact =  lazy(() => import( "./pages/contact"));
 const NotFound =  lazy(() => import( "./pages/not_found"));
 const Blog =  lazy(() => import( "./pages/blog"));
 const Detail =  lazy(() => import( "./pages/blog/detail"));
+const Create =  lazy(() => import( "./pages/blog/create"));
 const SettingRoute =  lazy(() => import( "./pages/settings"));
 
 
@@ -51,6 +52,8 @@ function App() {
 
               <Route path={ROUTER.SCREENS.BLOG} element={<Blog />} />
               <Route path={ROUTER.SCREENS.BLOG_DETAIL} element={<Detail />} />
+              <Route path={ROUTER.SCREENS.BLOG_CREATE} element={<Create />} />
+              {/* <Route path={ROUTER.SCREENS.BLOG_DETAIL} element={<Detail />} /> */}
 
               {/* <Route path="chat/:room/:conversation_id" element={<Conversation />} /> */}
               <Route path="chat/:num1/:operator/:num2" element={<Conversation />} />

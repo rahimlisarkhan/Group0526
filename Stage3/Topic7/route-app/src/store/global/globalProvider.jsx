@@ -16,11 +16,9 @@ export const GlobalStore = ({children})=>{
     const [loading,setLoading] = useState(false);
     const [exampleTitle,setExampleTitle] = useState("Hello from global store");
 
-
     const toggleMode = () => {
         setMode(prev => prev === "light" ? "dark" : "light")
     }
-
 
     const values = {
         mode,
