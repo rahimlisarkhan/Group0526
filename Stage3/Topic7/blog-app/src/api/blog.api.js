@@ -60,14 +60,11 @@ export const updateBlog = async (id, data) => {
 }
 
 export const deleteBlog = async (id) => {
-  try {
     const response = await instanceAxios({
       method: "DELETE",
       url: `/posts/${id}`
     });
   
     return response;
-  } catch (error) {
-    console.error(`Error deleting blog with id ${id}:`, error);
-  }
+
 }

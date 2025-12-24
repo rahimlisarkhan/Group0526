@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { ROUTER } from "../../constants/router";
 import Layout from "../../components/Layout/Layout";
-import {Flex,Typography,Button, Spin} from "antd"
+import {Flex,Typography,Button} from "antd"
 import { useEffect, useMemo } from "react";
 import { getBlogs } from "../../api/blog.api";
 import { useGlobal } from "../../store/global/useGlobal";
@@ -14,10 +14,6 @@ export default function Blog() {
   const navigate = useNavigate();
 
   const {actions,loading,blogs} = useGlobal()
-
-
-  console.log("blogs",blogs);
-
 
   // Values
   const renderBlogs = useMemo(() => {
@@ -32,19 +28,21 @@ export default function Blog() {
   }, [blogs, navigate]);
 
 
+  // Functions
+  const fetchData = async () => {
+
+    actions.setLoading(true);
+
+    const response = await getBlogs();
+
+    actions.setBlogs(response.data);
+
+    actions.setLoading(false);
+  }
+
 
   // Effects
   useEffect(()=>{
-
-    async function fetchData() {
-
-      actions.setLoading(true);
-
-      const res = await getBlogs()
-      actions.setBlogs(res.data);
-
-      actions.setLoading(false);
-    }
     fetchData()
   }, [])
 
@@ -57,14 +55,20 @@ export default function Blog() {
     );
   }
 
-
   return (
     <Layout>
       <Flex justify="space-between" align="center" style={{marginBottom: '20px'}}>
         <Typography.Title level={2}>Blog Page</Typography.Title>
+
+        <Flex gap={12}>
+        <Button size="default" variant="solid"  onClick={fetchData} >
+          Refresh
+        </Button>
+
         <Button color="purple" variant="solid" onClick={()=> navigate(ROUTER.ACTIONS.BLOG_CREATE)} >
           Create 
         </Button>
+        </Flex>
       </Flex>
     {/* BLOG CARDS */}
     <div className="blog-cards">

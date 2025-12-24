@@ -12,6 +12,7 @@ const GlobalContext = createContext(initialState);
 export const GlobalStore = ({children})=>{
 
     const [blogs,setBlogs] = useState([]);
+    const [blog,setBlog] = useState(null);
     const [mode,setMode] = useState("light");
     const [loading,setLoading] = useState(false);
     const [exampleTitle,setExampleTitle] = useState("Hello from global store");
@@ -23,11 +24,13 @@ export const GlobalStore = ({children})=>{
     const values = {
         mode,
         blogs,
+        blog,
         loading,
         exampleTitle,
         actions:{
             toggleMode,
             setBlogs,
+            setBlog,
             setLoading,
             setExampleTitle,
         }
