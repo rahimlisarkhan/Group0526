@@ -17,6 +17,8 @@ import  { Suspense,lazy } from "react";
 // import { useFetchData } from "./hooks/useFetchData";
 // import { getProfile } from "./services/auth";
 import { GlobalStore } from "./store/global/globalProvider";
+import { Loading } from "./components/Loading";
+import Layout from "./components/Layout/Layout";
 
 
 const Login =  lazy(() => import( "./pages/auth/login"));
@@ -34,38 +36,36 @@ const SettingRoute =  lazy(() => import( "./pages/settings"));
 
 function App() {
 
-  // const { data } = useFetchData(getProfile, null);
-
-  // console.log("data",data);
-  
   return (
     <BrowserRouter>
       <GlobalStore>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <Layout>
+              <Loading />
+            </Layout>
+          }
+        >
           <Routes>
-              <Route path={ROUTER.SCREENS.AUTH.LOGIN} element={<Login />} />
-              <Route path={ROUTER.SCREENS.AUTH.SIGNUP} element={<SignUp />} />
-              <Route path={ROUTER.SCREENS.HOME} element={<Home />} />
-              <Route path={ROUTER.SCREENS.ABOUT} element={<About />} />
-
-              <Route path={ROUTER.SCREENS.CONTACT} element={<Contact />} />
-
-              <Route path={ROUTER.SCREENS.BLOG} element={<Blog />} />
-              <Route path={ROUTER.SCREENS.BLOG_DETAIL} element={<Detail />} />
-              <Route path={ROUTER.SCREENS.BLOG_CREATE} element={<Create />} />
-              {/* <Route path={ROUTER.SCREENS.BLOG_DETAIL} element={<Detail />} /> */}
-
-              {/* <Route path="chat/:room/:conversation_id" element={<Conversation />} /> */}
-              <Route path="chat/:num1/:operator/:num2" element={<Conversation />} />
-
-              <Route path={ROUTER.SCREENS.SETTINGS.BASE} element={<SettingRoute />} />
+            <Route path={ROUTER.SCREENS.AUTH.LOGIN} element={<Login />} />
+            <Route path={ROUTER.SCREENS.AUTH.SIGNUP} element={<SignUp />} />
+            <Route path={ROUTER.SCREENS.HOME} element={<Home />} />
+            <Route path={ROUTER.SCREENS.ABOUT} element={<About />} />
+            <Route path={ROUTER.SCREENS.CONTACT} element={<Contact />} />
+            <Route path={ROUTER.SCREENS.BLOG} element={<Blog />} />
+            <Route path={ROUTER.SCREENS.BLOG_DETAIL} element={<Detail />} />
+            <Route path={ROUTER.SCREENS.BLOG_CREATE} element={<Create />} />
+            {/* <Route path={ROUTER.SCREENS.BLOG_DETAIL} element={<Detail />} /> */}
+            {/* <Route path="chat/:room/:conversation_id" element={<Conversation />} /> */}
+            <Route path="chat/:num1/:operator/:num2" element={<Conversation />} />
+            <Route path={ROUTER.SCREENS.SETTINGS.BASE} element={<SettingRoute />} />
             <Route path="*" element={<NotFound />} />
             {/* <Route path="*" element={<Navigate to={data ? ROUTER.SCREENS.HOME : ROUTER.SCREENS.AUTH.LOGIN} />} /> */}
           </Routes>
         </Suspense>
       </GlobalStore>
     </BrowserRouter>
-  )
+  );
 }
 
 export default App

@@ -1,13 +1,12 @@
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Layout from "../../components/Layout/Layout";
-
 
 
 
 export default function Detail() {
 
-    const { id } = useParams();
-    const navigate = useNavigate();
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   return (
     <Layout>

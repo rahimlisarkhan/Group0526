@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 
 
-
 export default function Create() {
 
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
   return (
     <Layout>
