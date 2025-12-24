@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { ROUTER } from "../../constants/router";
 import Layout from "../../components/Layout/Layout";
 import {Flex,Typography,Button} from "antd"
-import { useEffect, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { getBlogs } from "../../api/blog.api";
 import { useGlobal } from "../../store/global/useGlobal";
 import BlogCard from "../../components/BlogCard";
@@ -29,7 +29,9 @@ export default function Blog() {
 
 
   // Functions
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
+
+    if(blogs.length) return;
 
     actions.setLoading(true);
 
@@ -38,13 +40,13 @@ export default function Blog() {
     actions.setBlogs(response.data);
 
     actions.setLoading(false);
-  }
+  }, [actions, blogs.length]);
 
 
   // Effects
   useEffect(()=>{
     fetchData()
-  }, [])
+  }, [fetchData])
 
 
   if (loading) {
