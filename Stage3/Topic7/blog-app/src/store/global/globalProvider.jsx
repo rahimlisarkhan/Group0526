@@ -1,39 +1,68 @@
-import { createContext, useState } from "react";
+import { createContext, useReducer } from "react";
+import { TYPES } from "./types";
 
 const initialState = {
     mode:"light",
     blogs:[],
-    loading:false,
+    blog:null,
+    profile:null,
+    loading:true,
     exampleTitle:"",
 }
 
 const GlobalContext = createContext(initialState);
 
+function reducer(state, action) {
+    switch (action.type) {
+        case TYPES.TOGGLE_MODE:
+            return {
+                ...state,
+                mode: state.mode === "light" ? "dark" : "light",
+            };
+
+        case TYPES.SET_BLOGS:
+            return {
+                ...state,
+                blogs: action.payload,
+            };
+
+        case TYPES.SET_BLOG:
+            return {
+                ...state,
+                blog: action.payload,
+            };
+
+        case TYPES.SET_PROFILE:
+            return {
+                ...state,
+                profile: action.payload,
+            };
+
+        case TYPES.SET_LOADING:
+            return {
+                ...state,
+                loading: action.payload,
+            };
+
+        case TYPES.SET_EXAMPLE_TITLE:
+            return {
+                ...state,
+                exampleTitle: action.payload,
+            };
+
+        default:
+            return state;
+    }
+}
+
+
 export const GlobalStore = ({children})=>{
 
-    const [blogs,setBlogs] = useState([]);
-    const [blog,setBlog] = useState(null);
-    const [mode,setMode] = useState("light");
-    const [loading,setLoading] = useState(false);
-    const [exampleTitle,setExampleTitle] = useState("Hello from global store");
-
-    const toggleMode = () => {
-        setMode(prev => prev === "light" ? "dark" : "light")
-    }
+    const [state,dispatch] = useReducer(reducer, initialState);
 
     const values = {
-        mode,
-        blogs,
-        blog,
-        loading,
-        exampleTitle,
-        actions:{
-            toggleMode,
-            setBlogs,
-            setBlog,
-            setLoading,
-            setExampleTitle,
-        }
+       state,
+       dispatch
     }
 
     return <GlobalContext.Provider value={values}>{children}</GlobalContext.Provider>

@@ -4,6 +4,7 @@ import Password from "./password";
 import Notification from "./notification";
 import Header from "../../components/Header";
 import { ROUTER } from "../../constants/router";
+import Layout from "../../components/Layout/Layout";
 
 
 
@@ -14,8 +15,7 @@ export default function SettingRoute(){
     const navigate = useNavigate();
 
     return(
-        <div>
-            <Header/>
+        <Layout>
             <div className="setting-bar">
                 <h1>Settings Bar</h1>
                 <div>
@@ -31,5 +31,5 @@ export default function SettingRoute(){
                 <Route path={"notification"} element={<Notification />} />
             </Routes>
             </div>
-        </div>
+        </Layout>
 )} 

@@ -7,13 +7,13 @@ import { useGlobal } from "../store/global/useGlobal";
 export default function About() {
 
 
-  const globalState = useGlobal()
+  const {state} = useGlobal()
   
-    console.log("About",globalState);
+  console.log("About",state);
 
   return (
           <Layout>
-            <h1>About Page:{globalState.exampleTitle}</h1>
+            <h1>About Page:{state.exampleTitle}</h1>
           </Layout>
   )
 }

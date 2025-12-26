@@ -3,6 +3,8 @@ import { ROUTER } from "../constants/router";
 import styles from "./Header.module.css";
 import { cls } from "../utils/cls";
 import { useGlobal } from "../store/global/useGlobal";
+import { TYPES } from "../store/global/types";
+import { Avatar } from "antd";
 
 
 
@@ -13,7 +15,7 @@ export default function Header() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const {mode, actions} = useGlobal()
+  const {state, dispatch} = useGlobal()
 
   const isActive = (path) => {
     if(path == location.pathname){ 
@@ -23,7 +25,7 @@ export default function Header() {
   }
 
   return (
-    <header className={`${styles.header} ${mode === 'dark' ? styles.headerDark : styles.headerLight}`}>
+    <header className={`${styles.header} ${state.mode === 'dark' ? styles.headerDark : styles.headerLight}`}>
       <div className={styles.headerContainer}>
         <h2 className={styles.headerTitle}>My Website</h2>
         {/* <h2 className={`${styles.headerTitle} ${styles.fontMedium} ${styles.container}`}>My Website</h2>
@@ -45,9 +47,16 @@ export default function Header() {
             <li className={cls(isActive(ROUTER.ACTIONS.SETTINGS_PROFILE) , styles.navItem)} onClick={() => navigate(ROUTER.ACTIONS.SETTINGS_PROFILE)}>
               Settings
             </li>
-                 <button className={styles.toggleModeBtn} onClick={actions.toggleMode}>
-            Toggle Mode
-          </button>
+            <button className={styles.toggleModeBtn} onClick={() => dispatch({ type: TYPES.TOGGLE_MODE })}>
+              Mode
+            </button>
+            <button className={styles.toggleModeBtn} onClick={() => navigate(state.profile ? ROUTER.SCREENS.BLOG_CREATE : ROUTER.SCREENS.AUTH.LOGIN)}>
+              Get Started
+            </button>
+
+            {state.profile && <Avatar style={{marginLeft:"10px"}}>
+              {state.profile?.full_name?.slice(0, 2).toUpperCase()}
+            </Avatar> }
           </ul>
 
      

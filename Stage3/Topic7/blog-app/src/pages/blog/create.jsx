@@ -5,6 +5,7 @@ import { createBlog, updateBlog } from "../../api/blog.api";
 import { useFormik } from "formik";
 import { useGlobal } from "../../store/global/useGlobal";
 import { useCallback, useEffect } from "react";
+import { TYPES } from "../../store/global/types";
 
 export default function Create() {
 
@@ -14,7 +15,9 @@ export default function Create() {
 
   const blogId = searchParams.get("id")
 
-  const {actions, blogs} = useGlobal()
+  const {dispatch, state} = useGlobal()
+
+  const blogs = state.blogs;
 
   const handleSubmit = useCallback(async (values, { resetForm }) => {
 
@@ -24,10 +27,19 @@ export default function Create() {
         }
 
       const response = blogId ? await updateBlog(blogId, payload) : await createBlog(payload);
+      
+      if (blogId) {
+        const updatedBlogs = blogs.map((blog) =>
+          blog.id == blogId ? response.data : blog
+        );
 
-      actions.setBlogs([response.data, ...blogs]);
+          dispatch({ type: TYPES.SET_BLOGS, payload: updatedBlogs });
+        } else {
+          dispatch({ type: TYPES.SET_BLOGS, payload: [response.data, ...blogs]});
+        }
 
-      notification.success({
+
+       notification.success({
           title: blogId ? 'Blog Updated' : 'Blog Created',
           description: blogId ? 'Your blog has been updated successfully.' : 'Your blog has been created successfully.',
         })
@@ -35,7 +47,7 @@ export default function Create() {
         resetForm();
         navigate(-1);
 
-  }, [blogId, navigate, actions, blogs]);
+  }, [blogId, navigate, dispatch, blogs]);
 
 
   const formik = useFormik({

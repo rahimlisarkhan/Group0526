@@ -7,13 +7,14 @@ import { getBlogs } from "../../api/blog.api";
 import { useGlobal } from "../../store/global/useGlobal";
 import BlogCard from "../../components/BlogCard";
 import { Loading } from "../../components/Loading";
+import { TYPES } from "../../store/global/types";
 
 
 export default function Blog() {
 
   const navigate = useNavigate();
 
-  const {actions,loading,blogs} = useGlobal()
+  const {dispatch,state:{ loading, blogs} } = useGlobal()
 
   // Values
   const renderBlogs = useMemo(() => {
@@ -33,14 +34,13 @@ export default function Blog() {
 
     if(blogs.length) return;
 
-    actions.setLoading(true);
+    dispatch({ type: TYPES.SET_LOADING, payload: true });
 
     const response = await getBlogs();
 
-    actions.setBlogs(response.data);
-
-    actions.setLoading(false);
-  }, [actions, blogs.length]);
+    dispatch({ type: TYPES.SET_BLOGS, payload: response.data });
+    dispatch({ type: TYPES.SET_LOADING, payload: false });
+  }, [dispatch, blogs.length]);
 
 
   // Effects

@@ -4,29 +4,24 @@ import Layout from "../components/Layout/Layout";
 import { IoMdSend } from "react-icons/io";
 
 import { Button, DatePicker, Divider, Flex } from 'antd';
-
-
+import { TYPES } from "../store/global/types";
 
 
 export default function Home() {
 
 
-  const globalState = useGlobal()
-
-  console.log("Home",globalState);
+  const {state, dispatch} = useGlobal()
 
 
   const handleTitle = useCallback(() => {
-    
-     globalState.actions.setExampleTitle("New Global Title")
-
-  },[globalState.actions])
+     dispatch({ type: TYPES.SET_EXAMPLE_TITLE, payload: "New Global Title" })
+  },[dispatch]);
 
   return (
     <>
           <Layout>
             <h1>Home Page</h1>
-            <h2>{globalState.exampleTitle}</h2>
+            <h2>{state.exampleTitle}</h2>
 
             <Divider />
 

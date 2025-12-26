@@ -1,10 +1,9 @@
 import axios from "axios"
 
 const instanceAxios = axios.create({
-  baseURL: "https://blog-api-t6u0.onrender.com",
+  baseURL: "https://api.sarkhanrahimli.dev/api/filmalisa/",
   headers: {
     "Content-Type": "application/json",
-    "Authorization": "Bearer your_token_here"
   },
   timeout: 10000
 })
@@ -12,11 +11,13 @@ const instanceAxios = axios.create({
 export default instanceAxios
 
 
-
 // Add a request interceptor
 instanceAxios.interceptors.request.use(function (config) {
     // Do something before request is sent
     // config.headers["X-Custom-Header"] = "CustomHeaderValue";
+
+    config.headers["Authorization"] = `Bearer ${localStorage.getItem("access_token") || ""}`;
+
     
     return config;
   }, function (error) {

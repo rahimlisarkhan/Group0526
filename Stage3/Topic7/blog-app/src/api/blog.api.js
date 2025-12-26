@@ -1,13 +1,13 @@
-import instanceAxios from "../helper/instance";
+import axios from "axios";
 
 
-
+const baseURL = "https://blog-api-t6u0.onrender.com";
 
 export const getBlogs = async () => {
   try {
-    const response = await instanceAxios({
+    const response = await axios({
       method: "GET",
-      url: "/posts"
+      url: `${baseURL}/posts`
     });
   
     return response;
@@ -19,9 +19,9 @@ export const getBlogs = async () => {
 
 export const getBlogId = async (id) => {
   try {
-    const response = await instanceAxios({
+    const response = await axios({
       method: "GET",
-      url: `/posts/${id}`
+      url: `${baseURL}/posts/${id}`
     });
   
     return response.data;
@@ -32,9 +32,9 @@ export const getBlogId = async (id) => {
 
 export const createBlog = async (data) => {
   try {
-    const response = await instanceAxios({
+    const response = await axios({
       method: "POST",
-      url: "/posts",
+      url: `${baseURL}/posts`,
       data
     });
   
@@ -47,9 +47,9 @@ export const createBlog = async (data) => {
 
 export const updateBlog = async (id, data) => {
   try {
-    const response = await instanceAxios({
+    const response = await axios({
       method: "PUT",
-      url: `/posts/${id}`,
+      url: `${baseURL}/posts/${id}`,
       data
     });
   
@@ -60,9 +60,9 @@ export const updateBlog = async (id, data) => {
 }
 
 export const deleteBlog = async (id) => {
-    const response = await instanceAxios({
+    const response = await axios({
       method: "DELETE",
-      url: `/posts/${id}`
+      url: `${baseURL}/posts/${id}`
     });
   
     return response;

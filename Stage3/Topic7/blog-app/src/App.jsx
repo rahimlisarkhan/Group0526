@@ -1,24 +1,11 @@
-import {BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import './App.css'
 
-// Pages
-// import Home from "./pages/home";
-// import About from "./pages/about";
-// import Contact from "./pages/contact";
-// import NotFound from "./pages/not_found";
-// import Blog from "./pages/blog";
-// import Detail from "./pages/blog/detail";
-// import SettingRoute from "./pages/settings";
-
-
 import { ROUTER } from "./constants/router";
-import Conversation from "./pages/chat/conversation";
 import  { Suspense,lazy } from "react";
-// import { useFetchData } from "./hooks/useFetchData";
-// import { getProfile } from "./services/auth";
-import { GlobalStore } from "./store/global/globalProvider";
 import { Loading } from "./components/Loading";
 import Layout from "./components/Layout/Layout";
+import { useProfile } from "./hooks/useProfile";
 
 
 const Login =  lazy(() => import( "./pages/auth/login"));
@@ -35,10 +22,9 @@ const SettingRoute =  lazy(() => import( "./pages/settings"));
 
 
 function App() {
+  const { isAuthenticated } = useProfile()
 
   return (
-    <BrowserRouter>
-      <GlobalStore>
         <Suspense
           fallback={
             <Layout>
@@ -47,24 +33,26 @@ function App() {
           }
         >
           <Routes>
-            <Route path={ROUTER.SCREENS.AUTH.LOGIN} element={<Login />} />
-            <Route path={ROUTER.SCREENS.AUTH.SIGNUP} element={<SignUp />} />
-            <Route path={ROUTER.SCREENS.HOME} element={<Home />} />
-            <Route path={ROUTER.SCREENS.ABOUT} element={<About />} />
-            <Route path={ROUTER.SCREENS.CONTACT} element={<Contact />} />
-            <Route path={ROUTER.SCREENS.BLOG} element={<Blog />} />
-            <Route path={ROUTER.SCREENS.BLOG_DETAIL} element={<Detail />} />
-            <Route path={ROUTER.SCREENS.BLOG_CREATE} element={<Create />} />
-            {/* <Route path={ROUTER.SCREENS.BLOG_DETAIL} element={<Detail />} /> */}
-            {/* <Route path="chat/:room/:conversation_id" element={<Conversation />} /> */}
-            <Route path="chat/:num1/:operator/:num2" element={<Conversation />} />
-            <Route path={ROUTER.SCREENS.SETTINGS.BASE} element={<SettingRoute />} />
+            {!isAuthenticated ? 
+            <>
+              <Route path={ROUTER.SCREENS.AUTH.LOGIN} element={<Login />} />
+              <Route path={ROUTER.SCREENS.AUTH.SIGNUP} element={<SignUp />} />
+            </>
+            :
+            <>
+              <Route path={ROUTER.SCREENS.HOME} element={<Home />} />
+              <Route path={ROUTER.SCREENS.ABOUT} element={<About />} />
+              <Route path={ROUTER.SCREENS.CONTACT} element={<Contact />} />
+              <Route path={ROUTER.SCREENS.BLOG} element={<Blog />} />
+              <Route path={ROUTER.SCREENS.BLOG_DETAIL} element={<Detail />} />
+              <Route path={ROUTER.SCREENS.BLOG_CREATE} element={<Create />} />
+              <Route path={ROUTER.SCREENS.SETTINGS.BASE} element={<SettingRoute />} />
+            </>
+            }
             <Route path="*" element={<NotFound />} />
-            {/* <Route path="*" element={<Navigate to={data ? ROUTER.SCREENS.HOME : ROUTER.SCREENS.AUTH.LOGIN} />} /> */}
-          </Routes>
+       
+          </Routes> 
         </Suspense>
-      </GlobalStore>
-    </BrowserRouter>
   );
 }
 

@@ -6,6 +6,7 @@ import { deleteBlog, getBlogId } from "../../api/blog.api";
 import { Loading } from "../../components/Loading";
 import {Typography, Button, Flex, notification} from "antd"
 import { ROUTER } from "../../constants/router";
+import { TYPES } from "../../store/global/types";
 
 
 
@@ -15,7 +16,8 @@ export default function Detail() {
   const navigate = useNavigate();
 
 
-  const {actions, loading, blog,blogs} = useGlobal()
+  const {dispatch, state:{loading, blog, blogs}} = useGlobal()
+
 
 
 
@@ -31,7 +33,7 @@ export default function Detail() {
       });
       
       const updatedBlogs = blogs.filter(b => b.id.toString() != id);
-      actions.setBlogs(updatedBlogs);
+      dispatch({ type: TYPES.SET_BLOGS, payload: updatedBlogs });
       navigate(-1);
     } catch (error) {
 
@@ -50,18 +52,18 @@ export default function Detail() {
      async function fetchData() {
       if(!id) return;
  
-       actions.setLoading(true);
+       dispatch({ type: TYPES.SET_LOADING, payload: true });
  
        const data = await getBlogId(id)
 
-       actions.setBlog(data);
+       dispatch({ type: TYPES.SET_BLOG, payload: data });
  
-       actions.setLoading(false);
+       dispatch({ type: TYPES.SET_LOADING, payload: false });
      }
  
      fetchData()
      
-   }, [id])
+   }, [id, dispatch])
 
 
      if (loading) {
