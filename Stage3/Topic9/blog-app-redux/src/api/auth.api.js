@@ -3,7 +3,7 @@ import instanceAxios from "../helper/instance";
 
 export const authSignin = async (data) => await instanceAxios({
       method: "POST",
-      url: "auth/login",
+      url: "auth/login", 
       data
     });
 
