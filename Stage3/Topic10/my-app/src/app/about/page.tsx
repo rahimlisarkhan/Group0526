@@ -12,3 +12,6 @@ export default function About() {
         </div>
     );
 }
+
+// CSR - Client Side Rendering
+// SSR - Server Side Rendering

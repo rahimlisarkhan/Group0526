@@ -17,15 +17,8 @@ export default function Detail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-
-
-    const {loading, blog} = useSelector((state) => state.home); 
-
+  const {loading, blog} = useSelector((state) => state.home); 
   const dispatch = useDispatch();
-
-
-
-
 
   const handleRemove = async () => {
 
@@ -47,7 +40,6 @@ export default function Detail() {
       });
     }
   }
-  
 
 
    // Effects
