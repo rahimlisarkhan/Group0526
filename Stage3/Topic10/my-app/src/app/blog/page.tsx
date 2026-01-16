@@ -1,12 +1,7 @@
 import { ReadMoreBtn } from "@/components/ReadMore";
 import { getBlogs } from "@/services/blog.api";
-import Link from "next/link";
 
-export default async function Blog(a) {
-
-    console.log("a", a);
-
-
+export default async function Blog() {
 
     const blogs = await getBlogs();
 
