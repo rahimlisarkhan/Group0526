@@ -1,6 +1,7 @@
 
 import { ReadMoreBtn } from "@/components/ReadMore";
 import { getBlogId } from "@/services/blog.api";
+import Image from "next/image";
 
 export default async function BlogDetail(
     {
@@ -13,9 +14,15 @@ export default async function BlogDetail(
 
     const blogData = await getBlogId(slug)
 
+
+
     return (
         <div className="p-8 m-2 border-teal-600 border-4 min-h-screen flex flex-col items-center justify-center">
             <ReadMoreBtn to={`/blog`}>Back</ReadMoreBtn>
+
+            {/* <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLLZQP5UVOMaBluwF_dIbi2ANKS8MWUt48CQ&s" alt="Js" /> */}
+
+            <Image className="w-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLLZQP5UVOMaBluwF_dIbi2ANKS8MWUt48CQ&s" alt="Js" width={300} height={200} />
 
             <h1 className="text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
                 {blogData?.title}

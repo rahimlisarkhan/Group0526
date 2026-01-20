@@ -3,10 +3,12 @@
 import { useRouter } from "next/navigation";
 
 
+type ReadMoreBtnProps = {
+    children: React.ReactNode;
+    to: string;
+}
 
-
-
-export function ReadMoreBtn({ children, to }: { to: string; children: React.ReactNode }) {
+export function ReadMoreBtn({ children, to }: ReadMoreBtnProps) {
 
     const { push } = useRouter()
 

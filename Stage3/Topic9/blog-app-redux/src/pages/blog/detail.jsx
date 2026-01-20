@@ -8,8 +8,7 @@ import {Typography, Button, Flex, notification} from "antd"
 // import { ROUTER } from "../../constants/router";
 // import { TYPES } from "../../store/global/types";
 import { useDispatch, useSelector } from "react-redux";
-import { removeBlog, setBlog, setLoading } from "../../store/home";
-
+import { removeBlog, setBlog, setLoading } from "@/store/home";
 
 
 export default function Detail() {
